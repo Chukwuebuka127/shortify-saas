@@ -1,0 +1,12 @@
+# Node
+backend/node_modules/
+backend/package-lock.json
+
+# Terraform
+terraform/.terraform/
+terraform/*.zip
+terraform/.terraform.lock.hcl
+
+# Sensitive
+*.tfstate
+*.tfstate.backup
