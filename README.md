@@ -23,6 +23,17 @@ The application automatically:
 ---
 
 # 🏗️ Architecture
+```mermaid
+graph LR
+    User([👤 User]) -->|POST /shorten| APIGW[API Gateway]
+    APIGW --> Lambda1[Lambda\nshorten-url]
+    Lambda1 --> DDB[(DynamoDB\nURL mappings)]
+    
+    User2([👤 User]) -->|GET shortcode| APIGW
+    APIGW --> Lambda2[Lambda\nredirect-url]
+    Lambda2 --> DDB
+    Lambda2 -->|301 redirect| Original[🔗 Original URL]
+```
 
 ```
                     User
